@@ -13,14 +13,39 @@ public class MyLinkedList<T> implements Iterable<T>{
 
 	public boolean remove(int index) {
 		//to-do
+		if (index > size) {
+			return false;
+		}
+		Node<T>node = head;
+		Node<T>afterNode;
+		for (int i = 0; i < index-1; i++) {
+			node = node.getNext();
+		}
+		afterNode = node.getNext();
+		node.setNext(afterNode);
+		return true;
+
 	}
 
 	public T get(int index) {
 		//to-do
+		Node<T> nodeAtIndex = head;
+		for (int i = 0; i <index ; i++) {
+			nodeAtIndex = returnedNode.getNext();
+		}
+		return nodeAtIndex.getData();
 	}
 
 	public void add(T obj) {
 		//to-do
+		if (head == null) {
+			head = new Node<>(obj);
+		}
+		Node<T> node = head;
+		while (node.getNext()!=null) {
+			node = node.getNext();
+		}
+		return node.getData();
 	}
 
 	//The methods below are bonus
